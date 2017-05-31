@@ -2,8 +2,43 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #383838;
+  background-color: #f7f7f7;
 }
 
 a {
   color: #00B7FF;
+}
+
+ul {
+  list-style-type: none;
+}
+
+footer {
+/*  bottom: 0;
+  margin-bottom: 1%;
+  position: absolute;*/
+}
+
+
+.errorMessage {
+  color: red;
+
+}
+.campingHeaders {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+  -o-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+  text-align: center;
+
+}
+
+.campingHeaders IMG {
+  width: 100%;
 }
