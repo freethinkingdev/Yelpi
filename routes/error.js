@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* Error for the page. */
 router.get('/*', function(req, res, next) {
   res.render('error', {
-    message: "One Big Error"
+      title: 'Error',
+      message: "One Big Error. It seems we have 404 which is page not found.",
+      author: "Pimpek"
   });
 });
 
