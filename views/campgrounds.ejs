@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+
+    <h1><i class="fa fa-user" aria-hidden="true"></i> <%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <p>This is camp ground page. Read on...</p>
+    <div class="row">
+        <% campgrounds.forEach(function (ground) { %>
+            <div class="col-lg-4 col-sm-6">
+                    <div class="campingHeaders">
+                        <img src="<%= ground.img%>" />
+                    </div>
+            </div>
+
+        <% })%>
+    </div>
+
+<% include partials/footer %>
