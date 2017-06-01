@@ -42,3 +42,15 @@ footer {
 .campingHeaders IMG {
   width: 100%;
 }
+
+
+.addNewSiteToTheListLink {
+  margin-bottom: 80px;
+  font-size: 1.5em;
+  width: 35%;
+  transition: all 0.05s;
+}
+
+.addNewSiteToTheListLink:hover {
+  font-size: 2em;
+}
