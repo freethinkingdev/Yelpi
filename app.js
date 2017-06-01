@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var contact = require('./routes/contact');
 var campgrounds = require('./routes/campgrounds');
 var campgroundsadd = require('./routes/campgroundsadd');
+var campgroundsaddandsave = require('./routes/campgroundsaddandsave');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/users', users);
 app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/campgroundsadd', campgroundsadd);
+app.use('/campgroundsaddandsave', campgroundsaddandsave);
 app.use('/*', error);
 
 // catch 404 and forward to error handler

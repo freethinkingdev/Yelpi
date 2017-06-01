@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
       img: campImageUrl
     });
   } else {
-    console.log('no data');
+    // console.log('no data - list of camps');
   }
   res.render('campgrounds', {
     title: 'Camp Grounds',
