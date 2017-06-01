@@ -15,16 +15,6 @@ global.campgroundsArray = [
 
 /* GET campgrounds page. */
 router.get('/', function(req, res, next) {
-  if(req.query.campname && req.query.campdesc) {
-    var campName = req.query.campname;
-    var campImageUrl = req.query.campdesc;
-    campgroundsArray.push({
-      name: campName,
-      img: campImageUrl
-    });
-  } else {
-    // console.log('no data - list of camps');
-  }
   res.render('campgrounds', {
     title: 'Camp Grounds',
     author: 'Pimpek',
