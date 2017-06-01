@@ -34,7 +34,7 @@ app.use('/aboutus', aboutus);
 app.use('/users', users);
 app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
-app.use('/campgroundsnew', campgroundsnew);
+app.use('/campgrounds/new', campgroundsnew);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
