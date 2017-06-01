@@ -3,23 +3,23 @@
 
 <h1 xmlns="http://www.w3.org/1999/html"><i class="fa fa-envelope"></i> <%= title %></h1>
 
-    <form>
+    <form method="get" action="/campgrounds">
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="campname">Name</label>
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input placeholder="your name" class="form-control" type="text" name="name"/>
+            <input placeholder="your name" class="form-control" type="text" name="campname"/>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="file">Picture</label>
             <i class="fa fa-file" aria-hidden="true"></i>
             <input class="form-control" type="file" name="file"/>
-        </div>
+        </div>-->
 
         <div class="form-group">
-            <label for="desc">Description</label>
+            <label for="campdesc">Image url</label>
             <i class="fa fa-comment" aria-hidden="true"></i>
-            <textarea placeholder="your message" class="form-control" type="text" name="desc"></textarea>
+            <textarea placeholder="your message" class="form-control" type="text" name="campdesc"></textarea>
         </div>
 
         <button class="btn btn-default" type="submit">Send</button>
