@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET new campgrounds page. */
 router.get('/', function(req, res, next) {
-  res.render('campgroundsaddform', {
+  res.render('campgroundsnew', {
     title: 'Add New Camp Ground',
     author: 'Pimpek Maximus'
   });
