@@ -11,7 +11,7 @@ var aboutus = require('./routes/aboutus');
 var users = require('./routes/users');
 var contact = require('./routes/contact');
 var campgrounds = require('./routes/campgrounds');
-var campgroundsadd = require('./routes/campgroundsadd');
+var campgroundsaddform = require('./routes/campgroundsaddform');
 var campgroundsaddandsave = require('./routes/campgroundsaddandsave');
 
 var app = express();
@@ -35,7 +35,7 @@ app.use('/aboutus', aboutus);
 app.use('/users', users);
 app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
-app.use('/campgroundsadd', campgroundsadd);
+app.use('/campgroundsaddform', campgroundsaddform);
 app.use('/campgroundsaddandsave', campgroundsaddandsave);
 app.use('/*', error);
 
