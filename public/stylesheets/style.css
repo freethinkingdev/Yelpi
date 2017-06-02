@@ -14,9 +14,7 @@ ul {
 }
 
 footer {
-/*  bottom: 0;
-  margin-bottom: 1%;
-  position: absolute;*/
+ margin-top: 100px;
 }
 
 
@@ -49,8 +47,4 @@ footer {
   font-size: 1.5em;
   width: 35%;
   transition: all 0.05s;
-}
-
-.addNewSiteToTheListLink:hover {
-  font-size: 2em;
 }
