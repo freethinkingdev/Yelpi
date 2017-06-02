@@ -5,16 +5,19 @@
     <p>This is camp ground page. Read on...</p>
     <div class="row">
         <% campgrounds.forEach(function (ground) { %>
-            <div class="col-lg-4 col-sm-6">
-                    <div class="campingHeaders">
-                        <img title="<%= ground.name %>" alt="<%= ground.name %>" src="<%= ground.img%>" />
+            <div class="col-lg-4 col-sm-6 col-xs-6 ">
+                    <div class="thumbnail">
+                        <img class="img-rounded" title="<%= ground.name %>" alt="<%= ground.name %>" src="<%= ground.img%>" />
+                        <div class="caption">
+                            <h4><%= ground.name %></h4>
+                        </div>
                     </div>
             </div>
 
         <% })%>
     </div>
 
-<h3 class="addNewSiteToTheListLink"><a  href="/campgrounds/new">Add new site</a> </h3>
+<h3 class="addNewSiteToTheListLink btn btn-default btn-lg"><a  href="/campgrounds/new">Add new site</a> </h3>
 
 
 <% include partials/footer %>
