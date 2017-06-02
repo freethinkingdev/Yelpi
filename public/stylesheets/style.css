@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #383838;
   background-color: #f7f7f7;
@@ -22,7 +22,7 @@ footer {
   color: red;
 
 }
-.campingHeaders {
+/*.campingHeaders {
   display: block;
   padding: 4px;
   margin-bottom: 20px;
@@ -38,8 +38,8 @@ footer {
 }
 
 .campingHeaders IMG {
-  width: 100%;
-}
+
+}*/
 
 
 .addNewSiteToTheListLink {
