@@ -11,7 +11,7 @@
                         <div class="caption">
                             <h4><%= ground.name %></h4>
                         </div>
-                        <button class="btn btn-block"><a href="/campgrounds/<%= ground._id %>">More info</a></button>
+                        <a class="btn btn-default btn-primary btn-block" href="/campgrounds/<%= ground._id %>">More info</a>
                     </div>
             </div>
 
@@ -19,10 +19,7 @@
     </div>
 
 
-
-<hbutton class="btn btn-default btn-lg btn-block">
-    <a  href="/campgrounds/new">Add new site</a>
-</hbutton>
+    <a class="btn btn-default btn-lg btn-block btn-secondary"  href="/campgrounds/new">Add new site</a>
 
 
 <% include partials/footer %>

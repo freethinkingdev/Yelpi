@@ -3,6 +3,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #383838;
   background-color: #f7f7f7;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
 }
 
 a {
@@ -52,4 +54,16 @@ footer {
 
 .addNewCampSiteForm {
   width: 70%;
+}
+
+.textTypo {
+  font-size: 1.3em;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+.campgroundDetailHeader {
+  text-shadow: 1px 1px 1px #b7b7b7;
+  font-size: 3em;
+  letter-spacing: 3px;
 }

@@ -1,9 +1,15 @@
 <% include partials/header %>
 
     <div class="row">
-        <h1><%= objectArray.name %></h1>
+        <h1 class="campgroundDetailHeader"><%= objectArray.name %></h1>
         <img class="img-rounded thumbnail" src="<%=objectArray.img %>"/>
     </div>
+<div class="row">
+    <div class="container">
+        <p class="textTypo"><%= objectArray.desc %></p>
+    </div>
+
+</div>
 
 
 

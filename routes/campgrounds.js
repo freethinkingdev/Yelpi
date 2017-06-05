@@ -48,12 +48,15 @@ router.get('/', function(req, res, next) {
 /* POST save new campground and show camp grounds list. */
 router.post('/', function (req, res, next) {
     /*Checking to see if data has been received*/
-    if (req.body.campname && req.body.campdesc) {
+    if (req.body.campname && req.body.campdesc && req.body.campimg) {
         var newCampName = req.body.campname;
-        var newCampImgURL = req.body.campdesc;
+        var newCampDesc = req.body.campdesc;
+        var newCampImgUrl = req.body.campimg;
+
         Campsite.create({
             name: newCampName,
-            img: newCampImgURL },
+            img: newCampImgUrl,
+            desc: newCampDesc},
             function (err,result) {
                 if(err){
                     console.log(err);
