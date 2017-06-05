@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /* GET campgrounds page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
 
     var objectId = req.baseUrl.split("/").slice(-1)[0];
     Campsite.findById(objectId, function (err, result) {
-        if(err) {
+        if (err) {
             console.log(err);
         } else {
             // console.log(res);
@@ -17,9 +17,6 @@ router.get('/', function(req, res, next) {
             });
         }
     });
-
-
-    // console.log("This is campsite details route");
 
 });
 
