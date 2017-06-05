@@ -48,3 +48,8 @@ footer {
   width: 35%;
   transition: all 0.05s;
 }
+
+
+.addNewCampSiteForm {
+  width: 70%;
+}
