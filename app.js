@@ -1,19 +1,40 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express             = require('express');
+var path                = require('path');
+var favicon             = require('serve-favicon');
+var logger              = require('morgan');
+var cookieParser        = require('cookie-parser');
+var bodyParser          = require('body-parser');
+var mongoose            = require('mongoose');
 
-var index = require('./routes/index');
-var error = require('./routes/error');
-var aboutus = require('./routes/aboutus');
-var users = require('./routes/users');
-var contact = require('./routes/contact');
-var campgrounds = require('./routes/campgrounds');
-var campgroundsnew = require('./routes/campgroundsnew');
+var index               = require('./routes/index');
+var error               = require('./routes/error');
+var aboutus             = require('./routes/aboutus');
+var users               = require('./routes/users');
+var contact             = require('./routes/contact');
+var campgrounds         = require('./routes/campgrounds');
+var campgroundsnew      = require('./routes/campgroundsnew');
+var campgroundsdetail   = require('./routes/campgroundsdetail');
 
 var app = express();
+
+
+/* Database setup with mongo */
+mongoose.connect("mongodb://localhost/yelpikloniks");
+global.campsitesSchema = new mongoose.Schema({name:String,img:String});
+global.Campsite = mongoose.model("Campsite", campsitesSchema);
+
+
+
+/* Adding sample data to the db */
+/*Campsite.create({
+  name: "Dakota Camp",
+  img: 'https://s-media-cache-ak0.pinimg.com/736x/ae/d5/d2/aed5d2f14c3df4caf54bc101a53cdbd5.jpg'}, function (err,res) {
+  if(err){
+    console.log(err);
+  }else{
+    console.log(res);
+  }
+});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +56,7 @@ app.use('/users', users);
 app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/new', campgroundsnew);
+app.use('/campgrounds/:id', campgroundsdetail);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
