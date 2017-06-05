@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
     var objectId = req.baseUrl.split("/").slice(-1)[0];
-    var objectArray = [];
     Campsite.findById(objectId, function (err, result) {
         if(err) {
             console.log(err);
