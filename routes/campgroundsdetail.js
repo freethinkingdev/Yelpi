@@ -1,10 +1,10 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 
 /* GET campgrounds page. */
 router.get('/', function (req, res, next) {
-
-    var objectId = req.baseUrl.split("/").slice(-1)[0];
+    // var objectId = req.baseUrl.split("/").slice(-1)[0];
+    var objectId = req.params.id;
     Campsite.findById(objectId, function (err, result) {
         if (err) {
             console.log(err);
