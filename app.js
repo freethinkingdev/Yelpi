@@ -20,8 +20,8 @@ var app = express();
 
 /* Database setup with mongo */
 mongoose.connect("mongodb://localhost/yelpikloniks");
-global.campsitesSchema = new mongoose.Schema({name:String,desc: String,img:String});
-global.Campsite = mongoose.model("Campsite", campsitesSchema);
+/*global.campsitesSchema = new mongoose.Schema({name:String,desc: String,img:String});
+ global.Campsite = mongoose.model("Campsite", campsitesSchema);*/
 
 
 
