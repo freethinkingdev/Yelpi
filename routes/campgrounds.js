@@ -36,7 +36,8 @@ router.post('/', function (req, res, next) {
         Campsite.create({
             name: newCampName,
             img: newCampImgUrl,
-            desc: newCampDesc},
+                description: newCampDesc
+            },
             function (err,result) {
                 if(err){
                     console.log(err);
