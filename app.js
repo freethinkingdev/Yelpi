@@ -5,7 +5,7 @@ var logger              = require('morgan');
 var cookieParser        = require('cookie-parser');
 var bodyParser          = require('body-parser');
 var mongoose            = require('mongoose');
-
+mongoose.Promise = require('bluebird');
 var index               = require('./routes/index');
 var error               = require('./routes/error');
 var aboutus             = require('./routes/aboutus');
@@ -15,12 +15,17 @@ var campgrounds         = require('./routes/campgrounds');
 var campgroundsnew      = require('./routes/campgroundsnew');
 var campgroundsdetail   = require('./routes/campgroundsdetail');
 
+
+var seedTheDB = require('./public/javascripts/databseSeedFile');
+
 var app = express();
+
+seedTheDB();
 
 
 /* Database setup with mongo */
 mongoose.connect("mongodb://localhost/yelpikloniks");
-/*global.campsitesSchema = new mongoose.Schema({name:String,desc: String,img:String});
+/*global.campsitesSchema = new mongoose.Schema({name:String,description: String,img:String});
  global.Campsite = mongoose.model("Campsite", campsitesSchema);*/
 
 
