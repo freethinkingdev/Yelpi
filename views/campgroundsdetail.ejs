@@ -9,9 +9,36 @@
         <p class="textTypo"><%= objectArray.description %></p>
     </div>
 
+    <div class="comments">
+        <h4><i class="fa fa-comments" aria-hidden="true"></i> Comments:</h4>
+        <% objectArray.comments.forEach(function (comment) { %>
+        <p><em><%= comment.text %> by <%= comment.author %></em></p>
+        <% }) %>
+    </div>
+
+    <h4 id="revealAddNewCommentForm"><p>Add new comment below</p></h4>
+    <div class="container" id="addNewComment">
+        <form method="post" action="#">
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="author" placeholder="your name"/>
+            </div>
+            <div class="form-group">
+                <textarea name="boby" placeholder="comment" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-default form-control" type="submit"/>
+            </div>
+
+
+        </form>
+    </div>
+
 </div>
 <div class="container">
-    <a class="btn btn-default btn-block btn-primary" href="/campgrounds">Back to the list</a>
+    <a class="btn btn-default btn-block btn-primary" href="/campgrounds">
+        Back to the list
+    </a>
 </div>
 
 
