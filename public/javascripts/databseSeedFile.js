@@ -1,4 +1,5 @@
 var Campsites = require('../../models/campsites');
+var Comment = require('../../models/comment');
 
 /* Creating sample data for the databse */
 var sampleData = [
@@ -38,30 +39,48 @@ function initi() {
             console.log(err);
         } else {
             /* No errors */
+            /* Going through the sample data and adding it to the database*/
+            sampleData.forEach(function (site) {
+                var newCampSite = new Campsites({
+                    name: site.name,
+                    description: site.description,
+                    img: site.imageUrl
+                });
+
+                /* Actual saving data to database*/
+                newCampSite.save(function (err, newCampsite) {
+                    if (err) {
+                        /* If there is error */
+                        console.log(err);
+                    } else {
+                        /* No errors */
+                        console.log('New item added to the database');
+
+
+                        /* Adding sample comment to the posts */
+                        Comment.create({
+                            text: "This is a sample comment",
+                            author: "Tatiana"
+                        }, function (err, newComment) {
+                            if (err) {
+                                /* If there is error */
+                                console.log(err);
+                            } else {
+                                /* No errors */
+                                console.log('Comment has been added.');
+                                newCampSite.comments.push(newComment);
+                                newCampSite.save();
+                            }
+                        });
+                    }
+                });
+
+            });
             console.log("Database has been wiped!");
         }
     });
 
-    /* Going through the sample data and adding it to the database*/
-    sampleData.forEach(function (site) {
-        var newCampSite = new Campsites({
-            name: site.name,
-            description: site.description,
-            img: site.imageUrl
-        });
 
-        /* Actual saving data to databse*/
-        newCampSite.save(function (err, result) {
-            if (err) {
-                /* If there is error */
-                console.log(err);
-            } else {
-                /* No errors */
-                console.log('New item added to the databse');
-            }
-        });
-
-    });
 }
 
 /* Exporting the main function */
