@@ -4,7 +4,7 @@
 
 
 $(document).ready(function () {
-    var showCommentForm = $("#showCommentAddForm");
+    var showCommentForm = $("#makeALinkHand");
     var addCommentForm = $("#newCommentForm");
     addCommentForm.slideUp("slow", function () {
         $("#commentsIcon").removeClass("fa-arrow-down").addClass("fa-arrow-right");

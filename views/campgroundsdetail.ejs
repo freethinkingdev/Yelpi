@@ -12,14 +12,15 @@
     <div class="comments">
         <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments:</h4>
         <% objectArray.comments.forEach(function (comment) { %>
-        <p><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by <em><%= comment.author %></em>
+        <p><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by <em
+                    class="makeLinkHand"><%= comment.author %> <i class="fa fa-user-o" aria-hidden="true"></i></em>
         </p>
         <% }) %>
     </div>
 
 
     <div class="container">
-        <h4 id="showCommentAddForm">
+        <h4 id="makeALinkHand">
             <p>
                 Add new comment below <i id="commentsIcon" class="fa fa-arrow-down" aria-hidden="true"></i>
             </p>

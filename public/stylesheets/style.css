@@ -58,6 +58,10 @@ img {
     width: 250px;
 }
 
-#showCommentAddForm {
+#makeALinkHand {
+    cursor: pointer;
+}
+
+.makeLinkHand {
     cursor: pointer;
 }
