@@ -65,3 +65,9 @@ img {
 .makeLinkHand {
     cursor: pointer;
 }
+
+.makeLinkHand:hover {
+    cursor: pointer;
+    color: #1f5998;
+    font-weight: bold;
+}
