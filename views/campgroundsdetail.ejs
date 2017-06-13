@@ -6,12 +6,50 @@
 </div>
 <div class="row">
     <div class="container">
-        <p class="textTypo"><%= objectArray.desc %></p>
+        <p class="textTypo"><%= objectArray.description %></p>
+    </div>
+
+    <div class="comments">
+        <h4><i class="fa fa-comments" aria-hidden="true"></i> Comments:</h4>
+        <% objectArray.comments.forEach(function (comment) { %>
+        <p><em><%= comment.text %> by <%= comment.author %></em></p>
+        <% }) %>
+    </div>
+
+
+    <div class="container">
+        <h4 id="showCommentAddForm">
+            <p>
+                Add new comment below <i id="commentsIcon" class="fa fa-arrow-down" aria-hidden="true"></i>
+            </p>
+        </h4>
+        <div class="row text-center">
+            <div class="col-md-12 col-sm-12">
+                <form id="newCommentForm" method="post" action="/campgrounds/<%= objectArray._id %>/comments">
+
+                    <div class="form-group">
+                        <input required type="text" class="form-control" name="commAuthor" placeholder="your name"/>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="commBody" placeholder="comment" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input required class="btn btn-default form-control" type="submit"/>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+
     </div>
 
 </div>
 <div class="container">
-    <a class="btn btn-default btn-block btn-primary" href="/campgrounds">Back to the list</a>
+    <a class="btn btn-default btn-block btn-primary" href="/campgrounds">
+        Back to the list
+    </a>
 </div>
 
 
