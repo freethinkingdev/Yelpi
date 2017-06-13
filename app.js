@@ -5,6 +5,9 @@ var logger              = require('morgan');
 var cookieParser        = require('cookie-parser');
 var bodyParser          = require('body-parser');
 var mongoose            = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+var expresssSanitizer = require('express-sanitizer');
 
 var index               = require('./routes/index');
 var error               = require('./routes/error');
@@ -14,14 +17,20 @@ var contact             = require('./routes/contact');
 var campgrounds         = require('./routes/campgrounds');
 var campgroundsnew      = require('./routes/campgroundsnew');
 var campgroundsdetail   = require('./routes/campgroundsdetail');
+var commentsnew = require('./routes/campgrounds');
+
+
+var seedTheDB = require('./public/javascripts/databseSeedFile');
 
 var app = express();
+
+seedTheDB();
 
 
 /* Database setup with mongo */
 mongoose.connect("mongodb://localhost/yelpikloniks");
-global.campsitesSchema = new mongoose.Schema({name:String,desc: String,img:String});
-global.Campsite = mongoose.model("Campsite", campsitesSchema);
+/*global.campsitesSchema = new mongoose.Schema({name:String,description: String,img:String});
+ global.Campsite = mongoose.model("Campsite", campsitesSchema);*/
 
 
 
@@ -45,6 +54,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expresssSanitizer);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,6 +67,7 @@ app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
+app.use('/campgrounds/:id/comments', commentsnew);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
