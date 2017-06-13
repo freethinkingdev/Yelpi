@@ -10,9 +10,10 @@
     </div>
 
     <div class="comments">
-        <h4><i class="fa fa-comments" aria-hidden="true"></i> Comments:</h4>
+        <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments:</h4>
         <% objectArray.comments.forEach(function (comment) { %>
-        <p><%= comment.text %> by <em><%= comment.author %></em></p>
+        <p><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by <em><%= comment.author %></em>
+        </p>
         <% }) %>
     </div>
 
