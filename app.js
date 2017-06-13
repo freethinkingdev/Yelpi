@@ -66,6 +66,7 @@ app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
+app.use('/campgrounds/:id/comments', commentsnew);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
