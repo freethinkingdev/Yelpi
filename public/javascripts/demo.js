@@ -2,6 +2,9 @@
  * Created by marsin on 13/06/17.
  */
 alert('But are  sure it is alive????');
+alert('But are  sure it is alive????');
+alert('But are  sure it is alive????');
+alert('But are  sure it is alive????');
 
 
 $(document).ready(function () {
@@ -13,10 +16,8 @@ $(document).ready(function () {
     });
 
     showCommentForm.on("click", function () {
-        alert('It is alive');
-        alert('It is alive');
-        alert('It is alive');
-        alert('It is alive');
-        alert('It is alive');
+        $(".row #newCommentForm").slideToggle();
+        //$("#commentsIcon").removeClass("fa-arrow-right").addClass("fa-arrow-down");
+        $("#commentsIcon").toggleClass("fa-arrow-down").toggleClass("fa-arrow-right");
     });
 });
