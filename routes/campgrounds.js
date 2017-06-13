@@ -46,7 +46,17 @@ router.post('/', function (req, res, next) {
         });
         //var newCampSiteObj = {name: newCampName,img: newCampImgURL};
         //campgroundsArray.push(newCampSiteObj);
-    } else {
+    }
+
+    /* If the post comes from the comment form */
+    /*else if (req.body.commAuthor && req.body.commBody) {
+     /!*var commentAuthor = req.sanitize(req.body.commAuthor);
+     var commentBody = req.sanitize(req.body.commBody);
+     console.log(commentAuthor);
+     console.log(commentBody);*!/
+     }*/
+
+    else {
         console.log('No data received from the user form');
     }
     // console.log("This is post in the same file as get (ROUTE FILE)");
