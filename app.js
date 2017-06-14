@@ -17,7 +17,7 @@ var contact             = require('./routes/contact');
 var campgrounds         = require('./routes/campgrounds');
 var campgroundsnew = require('./routes/new');
 var campgroundsdetail   = require('./routes/campgroundsdetail');
-var commentsnew = require('./routes/comments/comments');
+var commentsnew = require('./routes/comments/new');
 
 
 var seedTheDB = require('./public/javascripts/databseSeedFile');
@@ -66,7 +66,7 @@ app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
-app.use('/campgrounds/:id/comments', commentsnew);
+app.use('/campgrounds/:id/new', commentsnew);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
