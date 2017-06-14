@@ -10,12 +10,19 @@
     </div>
 
     <div class="comments">
-        <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments:</h4>
-        <% objectArray.comments.forEach(function (comment) { %>
-        <p><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by <em
-                    class="makeLinkHand"><%= comment.author %> <i class="fa fa-user-o" aria-hidden="true"></i></em>
-        </p>
-        <% }) %>
+        <section>
+            <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments:</h4>
+            <ul>
+                <% objectArray.comments.forEach(function (comment) { %>
+                <li><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by
+                    <em class="makeLinkHand">
+                        <%= comment.author %>
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </em>
+                </li>
+                <% }) %>
+            </ul>
+        </section>
     </div>
 
 

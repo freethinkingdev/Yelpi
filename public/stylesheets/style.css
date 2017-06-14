@@ -71,3 +71,14 @@ img {
     color: #1f5998;
     font-weight: bold;
 }
+
+.comments ul li {
+    padding: 1%;
+}
+
+.comments ul li:nth-child(even) {
+    padding-left: 3%;
+    color: #454545;
+    background-color: #ededed;
+    border-radius: 6px;;
+}
