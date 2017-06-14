@@ -50,45 +50,6 @@ router.post('/', function (req, res, next) {
         //var newCampSiteObj = {name: newCampName,img: newCampImgURL};
         //campgroundsArray.push(newCampSiteObj);
     }
-
-    else if (req.body.commentAuthor && req.body.commentBody && req.body.siteId) {
-        var comAuthor = req.body.commentAuthor;
-        var comBody = req.body.commentBody;
-        var siteId = req.body.siteId;
-
-
-        Campsite.findOne({_id: siteId}, function (err, foundCampsite) {
-            if (err) {
-                /* If there is error */
-                console.log(err);
-            } else {
-                /* No errors */
-                Comment.create({
-                    text: comBody,
-                    author: comAuthor
-                }, function (err, newComment) {
-                    if (err) {
-                        /* If there is error */
-                        console.log(err);
-                    } else {
-                        /* No errors */
-                        foundCampsite.comments.push(newComment);
-                        foundCampsite.save(function (err, result) {
-                            if (err) {
-                                /* If there is error */
-                                console.log(err);
-                            } else {
-                                /* No errors */
-                                console.log("New post added to the camp site");
-                                res.redirect('/campgrounds/' + siteId);
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-
     else {
         console.log('No data received from the user form');
     }
