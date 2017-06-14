@@ -15,9 +15,9 @@ var aboutus             = require('./routes/aboutus');
 var users               = require('./routes/users');
 var contact             = require('./routes/contact');
 var campgrounds         = require('./routes/campgrounds');
-var campgroundsnew      = require('./routes/campgroundsnew');
+var campgroundsnew = require('./routes/new');
 var campgroundsdetail   = require('./routes/campgroundsdetail');
-var commentsnew = require('./routes/campgrounds');
+var commentsnew = require('./routes/comments/comments');
 
 
 var seedTheDB = require('./public/javascripts/databseSeedFile');
@@ -64,7 +64,7 @@ app.use('/aboutus', aboutus);
 app.use('/users', users);
 app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
-app.use('/campgrounds/new', campgroundsnew);
+app.use('/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
 app.use('/campgrounds/:id/comments', commentsnew);
 app.use('/*', error);
