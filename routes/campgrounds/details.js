@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router({mergeParams: true});
-var Campsite = require('../models/campsites');
+var Campsite = require('.././../models/campsites');
 
 /* GET campgrounds page. */
 router.get('/', function (req, res, next) {
@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
             console.log(err);
         } else {
             // console.log(res);
-            res.render('campgroundsdetail', {
+            res.render('./campgrounds/details', {
                 title: 'Camp Grounds Detail',
                 author: 'Pimpek',
                 objectArray: result

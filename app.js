@@ -16,7 +16,7 @@ var users               = require('./routes/users');
 var contact             = require('./routes/contact');
 var campgrounds         = require('./routes/campgrounds');
 var campgroundsnew = require('./routes/campgrounds/new');
-var campgroundsdetail   = require('./routes/campgroundsdetail');
+var campgroundsdetail = require('./routes/campgrounds/details');
 var commentsnew = require('./routes/comments/new');
 
 
@@ -29,21 +29,7 @@ seedTheDB();
 
 /* Database setup with mongo */
 mongoose.connect("mongodb://localhost/yelpikloniks");
-/*global.campsitesSchema = new mongoose.Schema({name:String,description: String,img:String});
- global.Campsite = mongoose.model("Campsite", campsitesSchema);*/
 
-
-
-/* Adding sample data to the db */
-/*Campsite.create({
-  name: "Dakota Camp",
-  img: 'https://s-media-cache-ak0.pinimg.com/736x/ae/d5/d2/aed5d2f14c3df4caf54bc101a53cdbd5.jpg'}, function (err,res) {
-  if(err){
-    console.log(err);
-  }else{
-    console.log(res);
-  }
-});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,7 +52,7 @@ app.use('/contact', contact);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
-app.use('/campgrounds/:id/new', commentsnew);
+app.use('/campgrounds/:id/comments/new', commentsnew);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
