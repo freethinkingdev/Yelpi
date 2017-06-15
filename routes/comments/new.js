@@ -1,8 +1,7 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 var Campsite = require('.././../models/campsites');
 var Comment = require('.././/../models/comment');
-
 
 /* POST save new campground and show camp grounds list. */
 router.post('/', function (req, res, next) {
@@ -10,10 +9,11 @@ router.post('/', function (req, res, next) {
     if (req.body.commentAuthor && req.body.commentBody && req.body.siteId) {
         var comAuthor = req.body.commentAuthor;
         var comBody = req.body.commentBody;
-        var siteId = req.body.siteId;
+        /* Getting the id of the object that is the campsite */
+        var objectId = req.params.id;
 
 
-        Campsite.findOne({_id: siteId}, function (err, foundCampsite) {
+        Campsite.findById(objectId, function (err, foundCampsite) {
             if (err) {
                 /* If there is error */
                 console.log(err);
@@ -36,7 +36,7 @@ router.post('/', function (req, res, next) {
                             } else {
                                 /* No errors */
                                 console.log("New post added to the camp site");
-                                res.redirect('/campgrounds/' + siteId);
+                                res.redirect('/campgrounds/' + objectId);
                             }
                         });
                     }
