@@ -41,10 +41,11 @@
                 <form id="newCommentForm" method="post" action="/campgrounds/<%= objectArray._id %>/comments/new">
 
                     <div class="form-group">
-                        <input required type="text" class="form-control" name="commentAuthor" placeholder="your name"/>
+                        <input required type="text" class="form-control" name="comment[author]"
+                               placeholder="your name"/>
                     </div>
                     <div class="form-group">
-                        <textarea required name="commentBody" placeholder="comment" class="form-control"></textarea>
+                        <textarea required name="comment[text]" placeholder="comment" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-default form-control" type="submit"/>
