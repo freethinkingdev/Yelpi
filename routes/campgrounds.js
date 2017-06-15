@@ -7,7 +7,7 @@ var campgroundsArray = [];
 
 /* GET campgrounds page. */
 router.get('/', function (req, res, next) {
-
+    /* Finding campsite object */
     Campsite.find({}, function (err, result) {
         if (err) {
             console.log(err);
@@ -21,24 +21,16 @@ router.get('/', function (req, res, next) {
             });
         }
     });
-
-
 });
 
 
 /* POST save new campground and show camp grounds list. */
 router.post('/', function (req, res, next) {
     /*Checking to see if data has been received*/
-    if (req.body.campname && req.body.campdesc && req.body.campimg) {
-        var newCampName = req.body.campname;
-        var newCampDesc = req.body.campdesc;
-        var newCampImgUrl = req.body.campimg;
-
-        Campsite.create({
-                name: newCampName,
-                img: newCampImgUrl,
-                description: newCampDesc
-            },
+    if (req.body.campsite) {
+        /* Getting campsite object from the form object */
+        var campsite = req.body.campsite;
+        Campsite.create(campsite,
             function (err, result) {
                 if (err) {
                     console.log(err);
@@ -47,13 +39,10 @@ router.post('/', function (req, res, next) {
                     res.redirect('/campgrounds');
                 }
             });
-        //var newCampSiteObj = {name: newCampName,img: newCampImgURL};
-        //campgroundsArray.push(newCampSiteObj);
     }
     else {
         console.log('No data received from the user form');
     }
-    // console.log("This is post in the same file as get (ROUTE FILE)");
 });
 
 module.exports = router;
