@@ -1,73 +1,89 @@
 <% include ../partials/header %>
 
 <div class="row">
-    <div class="container">
-        <h1 class="campgroundDetailHeader"><%= objectArray.name %></h1>
-        <img class="img-rounded thumbnail" src="<%= objectArray.img %>"/>
+
+    <div class="col-md-9">
+
+        <div class="container">
+            <h1 class="campgroundDetailHeader"><%= objectArray.name %></h1>
+            <img class="img-rounded thumbnail" src="<%= objectArray.img %>"/>
+        </div>
+
+        <div class="container-fluid">
+            <p class="textTypo"><%= objectArray.description %></p>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <!-- Some dummy data-->
+        <p>Some additional info</p>
+        <div class="list-group">
+            <li class="list-group-item active">Info</li>
+            <li class="list-group-item">Info</li>
+            <li class="list-group-item">Info</li>
+        </div>
+        <!-- End of the dummy data-->
     </div>
 </div>
+
 <div class="row">
-    <div class="container">
-        <p class="textTypo"><%= objectArray.description %></p>
-    </div>
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <!-- Comments section -->
+            <div class="comments">
+                <section>
+                    <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments for
+                        the <%= objectArray.name %>:</h4>
+                    <ul>
+                        <% objectArray.comments.forEach(function (comment) { %>
+                        <li><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by
+                            <em class="makeLinkHand">
+                                <%= comment.author %>
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                            </em>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </section>
+            </div>
+            <!-- End of comments section-->
+        </div>
 
+        <div class="col-md-6">
+            <!-- Adding comment form -->
+            <h4 id="makeALinkHand">
+                <p>Add new comment below <i id="commentsIcon" class="fa fa-arrow-down" aria-hidden="true"></i></p>
+            </h4>
 
-    <!-- Comments section -->
-    <div class="comments">
-        <section>
-            <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments for the <%= objectArray.name %>:</h4>
-            <ul>
-                <% objectArray.comments.forEach(function (comment) { %>
-                <li><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by
-                    <em class="makeLinkHand">
-                        <%= comment.author %>
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                    </em>
-                </li>
-                <% }) %>
-            </ul>
-        </section>
-    </div>
-
-
-    <!-- Adding comments section-->
-    <div class="container">
-        <h4 id="makeALinkHand">
-            <p>
-                Add new comment below <i id="commentsIcon" class="fa fa-arrow-down"
-                                         aria-hidden="true"></i>
-            </p>
-        </h4>
-        <div class="row text-center">
-            <div class="col-md-12 col-sm-12">
-                <form id="newCommentForm" method="post" action="/campgrounds/<%= objectArray._id %>/comments/new">
+            <div class="container-fluid">
+                <form id="newCommentForm" method="post"
+                      action="/campgrounds/<%= objectArray._id %>/comments/new">
 
                     <div class="form-group">
                         <input required type="text" class="form-control" name="comment[author]"
                                placeholder="your name"/>
                     </div>
                     <div class="form-group">
-                        <textarea required name="comment[text]" placeholder="comment" class="form-control"></textarea>
+                                    <textarea required name="comment[text]" placeholder="comment"
+                                              class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-default form-control" type="submit"/>
                     </div>
                 </form>
             </div>
+            <!-- End of the comment form-->
         </div>
-
-
-    </div>
-
 </div>
 
-
 <!-- Back to the main list button-->
-<div class="container">
+    <div class="container-fluid">
     <a class="btn btn-default btn-block btn-primary" href="/campgrounds">
         Back to the list
     </a>
 </div>
+    <!-- End of the back to the main page section-->
 
 
 <% include ../partials/footer %>
