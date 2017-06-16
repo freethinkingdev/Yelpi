@@ -15,7 +15,7 @@
     <!-- Comments section -->
     <div class="comments">
         <section>
-            <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments for the site:</h4>
+            <h4><i class="fa fa-comments fa-2x" aria-hidden="true"></i> Comments for the <%= objectArray.name %>:</h4>
             <ul>
                 <% objectArray.comments.forEach(function (comment) { %>
                 <li><i class="fa fa-commenting-o" aria-hidden="true"></i> <%= comment.text %> by
@@ -34,8 +34,8 @@
     <div class="container">
         <h4 id="makeALinkHand">
             <p>
-                Add new comment below to the <%= objectArray.name %>.<i id="commentsIcon" class="fa fa-arrow-down"
-                                                                        aria-hidden="true"></i>
+                Add new comment below <i id="commentsIcon" class="fa fa-arrow-down"
+                                         aria-hidden="true"></i>
             </p>
         </h4>
         <div class="row text-center">
