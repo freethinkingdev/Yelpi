@@ -1,52 +1,46 @@
 body {
-  /*padding: 50px;*/
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #383838;
-  background-color: #f7f7f7;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
+    /*padding: 50px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #383838;
+    background-color: #f7f7f7;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 footer {
- margin-top: 100px;
+    margin-top: 100px;
 }
 
-
 .errorMessage {
-  color: red;
+    color: red;
 
 }
 
 .addNewSiteToTheListLink {
-  margin-bottom: 80px;
-  font-size: 1.5em;
-  width: 35%;
-  transition: all 0.05s;
+    margin-bottom: 80px;
+    font-size: 1.5em;
+    width: 35%;
+    transition: all 0.05s;
 }
-
 
 .addNewCampSiteForm {
-  width: 70%;
+    width: 70%;
 }
 
-.textTypo {
-  font-size: 1.3em;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 300;
-}
-
-.campgroundDetailHeader {
-  text-shadow: 1px 1px 1px #b7b7b7;
-  font-size: 3em;
-  letter-spacing: 3px;
+.textParagraph {
+    font-size: 1.3em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    padding: 10px;
+    text-align: justify;
 }
 
 img {
@@ -81,4 +75,9 @@ img {
     color: #454545;
     background-color: #ededed;
     border-radius: 6px;;
+}
+
+.campsiteDetailImage img {
+    width: 100%;
+    height: 100%;
 }
