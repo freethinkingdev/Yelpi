@@ -1,23 +1,30 @@
-var express             = require('express');
-var path                = require('path');
-var favicon             = require('serve-favicon');
-var logger              = require('morgan');
-var cookieParser        = require('cookie-parser');
-var bodyParser          = require('body-parser');
-var mongoose            = require('mongoose');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var bodyParser = require('body-parser');
+var User = require('./models/user');
+var localStrategy = require('passport-local');
+var passportLocalMongoose = require('passport-local-mongoose');
+var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 var expresssSanitizer = require('express-sanitizer');
 
-var index               = require('./routes/index');
-var error               = require('./routes/error');
-var aboutus             = require('./routes/aboutus');
-var users               = require('./routes/users');
-var contact             = require('./routes/contact');
-var campgrounds         = require('./routes/campgrounds');
+var index = require('./routes/index');
+var error = require('./routes/error');
+var aboutus = require('./routes/aboutus');
+var users = require('./routes/users');
+var contact = require('./routes/contact');
+var campgrounds = require('./routes/campgrounds');
 var campgroundsnew = require('./routes/campgrounds/new');
 var campgroundsdetail = require('./routes/campgrounds/details');
 var commentsnew = require('./routes/comments/new');
+var secret = require('./routes/user/SECRET');
+var userLogin = require('./routes/user/login');
+var userRegister = require('./routes/user/register');
 
 
 var seedTheDB = require('./public/javascripts/databseSeedFile');
@@ -37,6 +44,19 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+/* Requiring and preliminary setup for express session */
+app.use(require('express-session')({
+    secret: "Maxioslaw Max Baby Boy",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -53,6 +73,9 @@ app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/new', campgroundsnew);
 app.use('/campgrounds/:id', campgroundsdetail);
 app.use('/campgrounds/:id/comments/new', commentsnew);
+app.use('/secret', secret);
+app.use('/login', userLogin);
+app.use('/register', userRegister);
 app.use('/*', error);
 
 // catch 404 and forward to error handler
