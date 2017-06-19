@@ -54,7 +54,7 @@ function initi() {
                         console.log(err);
                     } else {
                         /* No errors */
-                        console.log('New item added to the database');
+                        //console.log('New item added to the database');
 
 
                         /* Adding sample comment to the posts */
@@ -67,7 +67,7 @@ function initi() {
                                 console.log(err);
                             } else {
                                 /* No errors */
-                                console.log('Comment has been added.');
+                                //console.log('Comment has been added.');
                                 newCampSite.comments.push(newComment);
                                 newCampSite.save();
                             }
@@ -76,7 +76,7 @@ function initi() {
                 });
 
             });
-            console.log("Database has been wiped!");
+            console.log("Database has been wiped and repopulated with dummy data!");
         }
     });
 
