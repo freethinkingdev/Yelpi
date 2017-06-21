@@ -14,8 +14,8 @@ router.get('/', function (req, res, next) {
 
 /* POST register page that handles user registration. */
 router.post('/', function (req, res, next) {
-    var userObject = req.body.user;
-    User.register(new User({username: userObject.username}), userObject.password, function (err, newUser) {
+
+    User.register(new User({username: req.body.username}), req.body.password, function (err, newUser) {
         if (err) {
             /* If there is error */
             console.log(err);
