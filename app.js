@@ -23,6 +23,7 @@ var campgroundsdetail = require('./routes/campgrounds/details');
 var commentsnew = require('./routes/comments/new');
 var secret = require('./routes/user/SECRET');
 var userLogin = require('./routes/user/login');
+var userLogout = require('./routes/user/logout');
 var userRegister = require('./routes/user/register');
 
 
@@ -74,6 +75,7 @@ app.use('/campgrounds/:id', campgroundsdetail);
 app.use('/campgrounds/:id/comments/new', commentsnew);
 app.use('/secret', secret);
 app.use('/login', userLogin);
+app.use('/logout', userLogout);
 app.use('/register', userRegister);
 app.use('/*', error);
 
