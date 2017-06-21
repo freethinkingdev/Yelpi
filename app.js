@@ -3,14 +3,13 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
 var passport = require('passport');
 var bodyParser = require('body-parser');
 var User = require('./models/user');
 var localStrategy = require('passport-local');
 var passportLocalMongoose = require('passport-local-mongoose');
-var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-
 var expresssSanitizer = require('express-sanitizer');
 
 var index = require('./routes/index');
@@ -28,7 +27,6 @@ var userRegister = require('./routes/user/register');
 
 
 var seedTheDB = require('./public/javascripts/databseSeedFile');
-
 var app = express();
 
 seedTheDB();
@@ -53,6 +51,7 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
