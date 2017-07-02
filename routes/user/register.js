@@ -19,7 +19,7 @@ router.post('/', function (req, res, next) {
         if (err) {
             /* If there is error */
             console.log(err);
-            return res.render('register');
+            return res.render('register', {user: newUser});
         } else {
             /* No errors */
             //console.log(newUser);
